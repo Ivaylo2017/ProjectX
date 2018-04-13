@@ -33,7 +33,7 @@
 		
 		<article> 
 
-			<form:form action="${pageContext.request.contextPath}/groups/processStartSusuForm" 
+			<form:form action="${pageContext.request.contextPath}/groups/processStartSusuForm" modelAttribute="group"
 			   method="POST">
 				<br />
 				Group Name <br />
