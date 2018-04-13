@@ -47,8 +47,8 @@
 	<br>
 	
 	<!-- Add Friends button -->
-	<form:form action="${pageContext.request.contextPath}/friends" 
-			   method="POST">
+	<form:form action="${pageContext.request.contextPath}/friends/showFriends" 
+			   method="GET">
 		&nbsp;&nbsp;<input type="submit" value="Friends" />
 	</form:form>
 	<br>
