@@ -20,7 +20,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.fastsusu.model.Group;
 import com.fastsusu.service.GroupService;
-
+/**
+ * Group 
+ * @author 
+ *
+ */
 @Controller
 @RequestMapping("/groups")
 public class GroupController {
