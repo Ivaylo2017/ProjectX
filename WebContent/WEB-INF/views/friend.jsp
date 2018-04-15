@@ -62,6 +62,7 @@
 			  <c:forEach items ="${friends}" var="friend">
 				  <tr>
 				    <td>${friend.friendName}</td>
+				    <td><a href="${pageContext.request.contextPath}/friends/removeFriend?friendId=${friend.friendId}">Remove</a></a></td>
 				  </tr>
 			  </c:forEach>
 			</table>
