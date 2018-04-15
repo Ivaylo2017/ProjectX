@@ -13,20 +13,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	
 	<!-- Reference Bootstrap files -->
-	<link rel="stylesheet"
-		 href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="<c:url value="/static/css/navbar.css" />" rel="stylesheet" type="text/css" >
+	<link href="<c:url value="/static/css/SignUp.css" />" rel="stylesheet" type="text/css" >
+	    
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-	
 	<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 
 <body>
+<%-- 	<div id="navigation"><jsp:include page="navbar.jsp"></jsp:include></div> --%>
+
 	<div>
 		<p>User: <security:authentication property="principal.username" /> registered Groups</p>
 		<hr>
-		<p>
 			<table style="width:100%">
 			  <tr>
 			    <th>Group Name</th>
@@ -42,9 +43,7 @@
 				    <td>${group.payoutAmount}</td>
 				  </tr>
 			  </c:forEach>
-			</table>
-			
-		</p>
+			</table>	
 	<hr>
 	
 		<!-- Add a logout button -->
@@ -52,7 +51,8 @@
 				   method="POST">
 			<input type="submit" value="Logout" />
 		</form:form> 
-		<form:form action="${pageContext.request.contextPath}/" 
+		<br/><br/>
+		<form:form action="${pageContext.request.contextPath}/home" 
 			   method="GET">
 			<input type="submit" value="Home" />
 		</form:form>

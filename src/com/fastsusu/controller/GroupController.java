@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -58,7 +57,7 @@ public class GroupController {
 
 		// Check for error codes
 		System.out.println("Binding Result: " + theResult);
-
+		
 		// If there are any error codes reload the registration page
 		if (theResult.hasErrors())
 			return "start-susu";
@@ -68,7 +67,6 @@ public class GroupController {
 			theModel.addAttribute("groupError", "Group name already exists.");
 
 			logger.warning("Group name already exists.");
-
 			return "start-susu";
 		}
 		String username = request.getUserPrincipal().getName();
