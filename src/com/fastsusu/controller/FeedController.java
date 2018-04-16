@@ -40,8 +40,10 @@ public class FeedController {
 		feed.setUserName(loggedInUser);
 		feed.setComment(feed.getComment() + messageSource.getMessage("feeds.createion.message", null, locale));
 		feed.setCreationDate(new Date());
-
+		
 		feedService.save(feed);
+		
+		theModel.addAttribute("successFeed", true);
 
 		return "createFeed";
 	}

@@ -27,6 +27,22 @@
 	<div>
 		<p>User: <security:authentication property="principal.username" /> Friends</p>
 		<hr>
+		<div class="form-group">
+	        <div class="col-xs-15">
+	            <div>
+				
+					<!-- Check for registration error -->
+					<c:if test="${successFeed}">
+				
+						<div class="alert alert-success" role="alert">
+							<spring:message code="feed.creation.success"/>
+						</div>
+
+					</c:if>
+															
+	            </div>
+	        </div>
+	    </div>
 		<!-- Place for messages: error, alert etc ... -->
 		<form:form action="${pageContext.request.contextPath}/feeds/createFeed" modelAttribute="feed" method="POST">
 	    	<!-- User name -->
