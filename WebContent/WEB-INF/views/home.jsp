@@ -108,7 +108,7 @@
 	<div style="float: right;margin-right: 50px;">
 		<ul>
 			<c:forEach items="${userFeeds}" var="feed">
-				<li>${feed.comment}</li>
+				<li>${feed.comment} on ${feed.creationDate}</li>
 			</c:forEach>
 		</ul>
 	</div>
