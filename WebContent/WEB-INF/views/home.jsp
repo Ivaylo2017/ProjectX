@@ -106,11 +106,22 @@
 		</form:form>
 	</div>
 	<div style="float: right;margin-right: 50px;">
-		<ul>
-			<c:forEach items="${userFeeds}" var="feed">
-				<li>${feed.comment} on ${feed.creationDate}</li>
-			</c:forEach>
-		</ul>
+		<div class="row">
+		    <div class="col">
+		        <div class="card">
+		            <div class="card-body text-center">
+		                <h5 class="card-title">User's Feeds</h5>
+		                <c:forEach items="${feeds}" var="feed">
+			                <a href="#" class="card-link">${feed.userName} on ${feed.creationDate}</a>
+			                <p class="card-text">
+			                	${feed.comment}
+			                </p>
+			                <br/>
+		               </c:forEach>
+		            </div>
+		        </div>
+		    </div>
+		</div>
 	</div>
 </body>
 

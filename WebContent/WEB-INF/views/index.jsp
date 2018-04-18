@@ -30,22 +30,7 @@
     </div>
 
 
-	<div class="row">
-	    <div class="col">
-	        <div class="card">
-	            <div class="card-body text-center">
-	                <h5 class="card-title">User's Feeds</h5>
-	                <c:forEach items="${feeds}" var="feed">
-		                <a href="#" class="card-link">${feed.userName} on ${feed.creationDate}</a>
-		                <p class="card-text">
-		                	${feed.comment}
-		                </p>
-		                <br/>
-	               </c:forEach>
-	            </div>
-	        </div>
-	    </div>
-	</div>
+	
     <div class="row">
 	    <div class="col">
 	        <div class="card">

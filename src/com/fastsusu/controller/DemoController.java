@@ -20,16 +20,13 @@ public class DemoController {
 	
 	@RequestMapping("/")
 	public String showIndex(Model model) {
-		List<Feeds> feeds = feedService.findAllFeeds();
-		model.addAttribute("feeds", feeds);
 		return "index";
 	}
 	
 	@RequestMapping("/home")
 	public String showHome(Model model, HttpServletRequest request) {
-		String loggedInUser = request.getUserPrincipal().getName();
-		List<Feeds> feeds = feedService.findUserFeeds(loggedInUser);
-		model.addAttribute("userFeeds", feeds);
+		List<Feeds> feeds = feedService.findAllFeeds();
+		model.addAttribute("feeds", feeds);;
 		
 		return "home";
 	}

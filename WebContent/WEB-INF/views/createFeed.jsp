@@ -48,9 +48,9 @@
 			<div style="margin-bottom: 25px" class="input-group">
 				<table style="border: 0px;">
 					<tr>
-						<td>User <security:authentication property="principal.username" />&nbsp;&nbsp;&nbsp;</td>
+						<td>User <security:authentication property="principal.username" /> bought &nbsp;</td>
 						<td><form:input path="comment" placeholder="comment" class="form-control no-border" cssStyle="border: none;box-shadow: none;"/></td>
-						<td>&nbsp;&nbsp;&nbsp;<spring:message code="feeds.createion.message"/></td>
+						<td>&nbsp;with money from susu and saved!</td>
 					</tr>
 				</table>
 			</div>
