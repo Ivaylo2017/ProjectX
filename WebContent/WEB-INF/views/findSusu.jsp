@@ -27,7 +27,6 @@
 	<div>
 		<p>Groups</p>
 		<hr>
-		<p>
 			<table style="width:100%">
 			  <tr>
 			    <th>Group Name</th>
@@ -44,8 +43,6 @@
 				  </tr>
 			  </c:forEach>
 			</table>
-			
-		</p>
 	<hr>
 	
 		<!-- Add a logout button -->
