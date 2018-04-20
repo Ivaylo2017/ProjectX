@@ -55,20 +55,6 @@ public class GroupController {
 	@RequestMapping("/processStartSusuForm")
 	public String processStartSusu(@ModelAttribute("group") Group theGroup, Model theModel, BindingResult theResult, HttpServletRequest request) {
 
-		// Check for error codes
-		System.out.println("Binding Result: " + theResult);
-		
-		// If there are any error codes reload the registration page
-		if (theResult.hasErrors())
-			return "start-susu";
-		
-		if(groupService.findByName(theGroup.getGroupName()) != null){
-			theModel.addAttribute("group", theGroup);
-			theModel.addAttribute("groupError", "Group name already exists.");
-
-			logger.warning("Group name already exists.");
-			return "start-susu";
-		}
 		String username = request.getUserPrincipal().getName();
 		groupService.save(theGroup, username);
 		theModel.addAttribute("group", theGroup);

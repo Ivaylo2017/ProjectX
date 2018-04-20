@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 
 <html>
 	<head>
@@ -8,19 +9,27 @@
 		<title>Enroll</title>
 	</head>
 	<body>
-	<form:form action="${pageContext.request.contextPath}/charge" modelAttribute="chargeRequest" method="POST" id="checkout-form">
+	<form:form action="${pageContext.request.contextPath}/payment/charge" modelAttribute="chargeRequest" method="POST" id="checkout-form">
 		    <form:hidden path="amount" />
-		    <label>Price:<span>${amount/100}</span></label>
-		    <script src='https://checkout.stripe.com/checkout.js' class='stripe-button'
-	        	attr='data-key=${stripePublicKey}, 
-	         	data-amount=${chargeRequest.amount}, 
-	         	data-currency=${chargeRequest.currency}'
-	         	data-name='FastSusu'
-	         	data-description='Spring course checkout'
-	         	data-image='../images/logo1.png'
-	         	data-locale='auto'
-	         	data-zip-code='false'>
-         </script>
+		    <form:hidden path="groupId" />
+		    <c:if test="${chargeRequest.pageName != null}">
+			    <form:hidden path="groupName" />
+			    <form:hidden path="groupSize" />
+			    <form:hidden path="howOften" />
+			    <form:hidden path="duration_weeks" />
+			    <form:hidden path="startDate" />
+			    <form:hidden path="pageName" />
+		    </c:if>
+		    <label>Price:<span>${chargeRequest.amount}</span></label>
+		    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+			    data-key="${stripePublicKey}"
+			    data-amount="${chargeRequest.amount*100}"
+			    data-currency="${chargeRequest.currency}"
+			    data-name="FastSusu"
+			    data-description="Fastsusu Payment"
+			    data-image="${pageContext.request.contextPath}/static/images/logo1.png"
+			    data-locale="auto">
+			  </script>
 		</form:form>
 	</body>
 </html>

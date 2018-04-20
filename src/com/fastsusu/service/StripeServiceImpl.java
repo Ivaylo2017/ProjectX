@@ -5,7 +5,8 @@ import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import com.fastsusu.model.ChargeRequest;
@@ -20,12 +21,12 @@ import com.stripe.model.Charge;
 @Service("stripeService")
 public class StripeServiceImpl implements StripeService {
 
-	@Value("${STRIPE_SECRET_KEY}")
-	private String secretKey;
+	@Autowired
+	private Environment env;
 
 	@PostConstruct
 	public void init() {
-		Stripe.apiKey = secretKey;
+		Stripe.apiKey = env.getProperty("stripe.secret.key");
 	}
 
 	@Override

@@ -32,7 +32,7 @@
 
 		
 		<article> 
-			<form:form action="${pageContext.request.contextPath}/groups/processStartSusuForm" modelAttribute="group"
+			<form:form action="${pageContext.request.contextPath}/payment/enrollGroup" modelAttribute="group"
 				   method="POST">
 					<br />
 					&nbsp;&nbsp;Group Name <br />
