@@ -20,10 +20,10 @@
 			    <form:hidden path="startDate" />
 			    <form:hidden path="pageName" />
 		    </c:if>
-		    <label>Price:<span>${chargeRequest.amount}</span></label>
+		    <label>Price:<span>${chargeRequest.amount/100}</span></label>
 		    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 			    data-key="${stripePublicKey}"
-			    data-amount="${chargeRequest.amount*100}"
+			    data-amount="${chargeRequest.amount}"
 			    data-currency="${chargeRequest.currency}"
 			    data-name="FastSusu"
 			    data-description="Fastsusu Payment"
