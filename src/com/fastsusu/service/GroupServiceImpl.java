@@ -72,4 +72,9 @@ public class GroupServiceImpl implements GroupService {
 		userGroupMappingDao.save(userGroupMapping);	
 	}
 
+	@Override
+	public int findAGroupCount(int groupId) {
+		return userGroupMappingDao.findAGroupCount(groupId);
+	}
+
 }

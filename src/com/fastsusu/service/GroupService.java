@@ -25,4 +25,5 @@ public interface GroupService {
 	
 	void associateGroup(int groupId, String userName);
 
+	int findAGroupCount(int groupId);
 }

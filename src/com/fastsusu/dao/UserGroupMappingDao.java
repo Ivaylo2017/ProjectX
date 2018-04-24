@@ -5,4 +5,6 @@ import com.fastsusu.model.UserGroupMapping;
 public interface UserGroupMappingDao {
 
 	void save(UserGroupMapping userGroupMapping);
+	
+	int findAGroupCount(int groupId);
 }

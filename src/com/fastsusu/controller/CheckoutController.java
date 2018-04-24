@@ -2,6 +2,7 @@ package com.fastsusu.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
@@ -63,6 +64,12 @@ public class CheckoutController {
 
 			logger.warning("Group name already exists.");
 			return "start-susu";
+		}else if(group.getGroupSize() <1){
+			model.addAttribute("group", group);
+			model.addAttribute("groupError", "Group size should be greater then 0");
+
+			logger.warning("Group size should be greater then 0.");
+			return "start-susu";
 		}
 
 		ChargeRequest chargeRequest = new ChargeRequest();
@@ -89,6 +96,16 @@ public class CheckoutController {
 			HttpServletRequest request) {
 
 		Group group = groupService.findById(groupId);
+		int groupSize = groupService.findAGroupCount(groupId);
+		
+		if(groupSize >= group.getGroupSize()){
+			String username = request.getUserPrincipal().getName();
+			List<Group> groups = groupService.findNotAssociatedGroups(username);
+
+			model.addAttribute("groups", groups);
+			return "findSusu";
+		}
+		
 		ChargeRequest chargeRequest = new ChargeRequest();
 		chargeRequest.setGroupId(groupId);
 		setModelAttr(chargeRequest, group, model);

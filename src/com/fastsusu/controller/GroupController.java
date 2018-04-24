@@ -54,7 +54,15 @@ public class GroupController {
 
 	@RequestMapping("/processStartSusuForm")
 	public String processStartSusu(@ModelAttribute("group") Group theGroup, Model theModel, BindingResult theResult, HttpServletRequest request) {
+		
+		if(theGroup.getGroupSize() < 1){
 
+			// add the object to the model
+			theModel.addAttribute("group", theGroup);
+
+			return "start-susu";
+		}
+		
 		String username = request.getUserPrincipal().getName();
 		groupService.save(theGroup, username);
 		theModel.addAttribute("group", theGroup);
