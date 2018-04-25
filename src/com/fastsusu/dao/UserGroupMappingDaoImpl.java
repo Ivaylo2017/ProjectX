@@ -3,6 +3,8 @@
  */
 package com.fastsusu.dao;
 
+import java.util.List;
+
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
@@ -35,5 +37,14 @@ public class UserGroupMappingDaoImpl extends AbstractDao<Integer, UserGroupMappi
 		criteria.add(Restrictions.eq("groupId", groupId));
 		Long count = (Long)criteria.uniqueResult();
 		return count.intValue();
+	}
+	
+	@Override
+	public List<UserGroupMapping> findGroupUsers(int groupId) {
+		Criteria criteria = createEntityCriteria();
+		criteria.add(Restrictions.eq("groupId", groupId));
+		@SuppressWarnings("unchecked")
+		List<UserGroupMapping> userGroups = (List<UserGroupMapping>)criteria.list();
+		return userGroups;
 	}
 }

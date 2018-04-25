@@ -98,4 +98,13 @@ public class GroupController {
 		theModel.addAttribute("group", groupService.findById(groupId));
 		return "associateGroup";
 	}
+	
+	@RequestMapping("/groupDetails")
+	public String groupDetails(@RequestParam("groupId") Integer groupId, Model theModel, HttpServletRequest request) {
+
+		Group group = groupService.findById(groupId);
+		theModel.addAttribute("group", group);
+		theModel.addAttribute("groupUsers", groupService.findGroupUsers(groupId));
+		return "groupDetail";
+	}
 }
