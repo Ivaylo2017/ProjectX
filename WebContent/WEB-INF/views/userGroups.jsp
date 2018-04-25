@@ -37,7 +37,7 @@
 			  </tr>
 			  <c:forEach items ="${groups}" var="group">
 				  <tr>
-				    <td>${group.groupName}</td>
+				    <td><a href="${pageContext.request.contextPath}/groups/groupDetails?groupId=${group.id}">${group.groupName}</a></td>
 				    <td>${group.groupSize}</td>
 				    <td>${group.howOften}</td>
 				    <td>${group.payoutAmount}</td>

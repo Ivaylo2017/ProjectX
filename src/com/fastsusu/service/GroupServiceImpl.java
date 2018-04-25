@@ -77,4 +77,9 @@ public class GroupServiceImpl implements GroupService {
 		return userGroupMappingDao.findAGroupCount(groupId);
 	}
 
+	@Override
+	public List<UserGroupMapping> findGroupUsers(int groupId) {
+		return userGroupMappingDao.findGroupUsers(groupId);
+	}
+
 }
