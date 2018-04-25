@@ -58,17 +58,21 @@ public class CheckoutController {
 		if (theResult.hasErrors())
 			return "start-susu";
 
-		if (groupService.findByName(group.getGroupName()) != null) {
+		if(groupService.findByName(group.getGroupName()) != null || group.getGroupSize() < 1 || group.getPayoutAmount() < 10){
 			model.addAttribute("group", group);
-			model.addAttribute("groupError", "Group name already exists.");
-
-			logger.warning("Group name already exists.");
-			return "start-susu";
-		}else if(group.getGroupSize() <1){
-			model.addAttribute("group", group);
-			model.addAttribute("groupError", "Group size should be greater then 0");
-
-			logger.warning("Group size should be greater then 0.");
+			String errorMSG = "";
+			if(group.getGroupSize() < 1){
+				errorMSG+= "Group size should be greater then 0.";
+			}
+			if(group.getPayoutAmount() < 10){
+				errorMSG+= " Group amount should be greater then 10.";
+				logger.warning("Group amount should be greater then 10.");
+			}
+			if(groupService.findByName(group.getGroupName()) != null){
+				errorMSG+= " Group name already exists.";
+			}
+			logger.info(errorMSG);
+			model.addAttribute("groupError", errorMSG);
 			return "start-susu";
 		}
 
