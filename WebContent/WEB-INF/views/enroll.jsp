@@ -20,6 +20,16 @@
 			    <form:hidden path="startDate" />
 			    <form:hidden path="pageName" />
 		    </c:if>
+		    <div align="center">
+		    <br><br><br><br>
+		    You are about to enroll in ${chargeRequest.groupName}<br>
+		    Please make sure to read <a href="#">terms and conditions</a><br>
+		    By clicking the "Pay with Card" button bellow you indicate that you<br>
+		    have read and consent to them.<br>
+		    You will be then asked for your credit or debit card information<br>
+		    to initiate transactions and join this Susu<br><br><br><br>
+		    </div>
+		    <div align="center">
 		    <label>Price:<span>${chargeRequest.amount}</span></label>
 		    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 			    data-key="${stripePublicKey}"
@@ -30,6 +40,7 @@
 			    data-image="${pageContext.request.contextPath}/static/images/logo1.png"
 			    data-locale="auto">
 			  </script>
+			  </div>
 		</form:form>
 	</body>
 </html>

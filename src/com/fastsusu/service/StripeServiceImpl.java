@@ -33,7 +33,7 @@ public class StripeServiceImpl implements StripeService {
 	public Charge charge(ChargeRequest chargeRequest) throws AuthenticationException, InvalidRequestException,
 			APIConnectionException, CardException, APIException {
 		Map<String, Object> chargeParams = new HashMap<>();
-		chargeParams.put("amount", chargeRequest.getAmount());
+		chargeParams.put("amount", chargeRequest.getAmount() * 100);
 		chargeParams.put("currency", chargeRequest.getCurrency());
 		chargeParams.put("description", chargeRequest.getDescription());
 		chargeParams.put("source", chargeRequest.getStripeToken());

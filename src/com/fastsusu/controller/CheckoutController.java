@@ -111,6 +111,7 @@ public class CheckoutController {
 		}
 		
 		ChargeRequest chargeRequest = new ChargeRequest();
+		chargeRequest.setGroupName(group.getGroupName());
 		chargeRequest.setGroupId(groupId);
 		setModelAttr(chargeRequest, group, model);
 		return "enroll";
